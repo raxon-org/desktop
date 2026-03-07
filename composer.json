@@ -1,8 +1,8 @@
 {
-    "name" : "raxon/ace",
+    "name" : "raxon/desktop",
     "description" : "raxon/ace see https://raxon.org for detailed usage",
     "type" : "application",
-    "keywords" : ["application", "ace", "editor","raxon", "library", "framework", "domain","raxon.org"],
+    "keywords" : ["application", "desktop", "workspace","raxon", "library", "framework", "domain","raxon.org"],
     "homepage": "https://raxon.org",
     "require" : {
         "raxon/framework": ">=2024.09.04"
