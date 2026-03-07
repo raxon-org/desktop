@@ -1,5 +1,5 @@
 {{$backend.host = options('backend.host')}}
-{{$frontend.host = options('backend.host')}}{{literal}}
+{{$frontend.host = options('frontend.host')}}{{literal}}
 //{{RAX}}
 import user from "/Module/User.js";
 import { version } from "/Module/Priya.js";
