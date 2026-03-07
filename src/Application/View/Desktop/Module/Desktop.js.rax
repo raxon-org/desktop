@@ -1,4 +1,5 @@
-{{$backend.host = options('backend.host')}}{{literal}}
+{{$backend.host = options('backend.host')}}
+{{$frontend.host = options('backend.host')}}{{literal}}
 //{{RAX}}
 import user from "/Module/User.js";
 import { version } from "/Module/Priya.js";
@@ -23,12 +24,12 @@ require(
                 if (!is.empty(response.node)) {
                     user.set(response.node);
                     header('Authorization', 'Bearer ' + user.token());
-                    url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/";
+                    url = "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/";
                     url += '?filter[user][strictly-exact]=' + user.get('uuid');
                     url += '&sort[user]=ASC&sort[name]=ASC';
                     url += '&limit=*';
                     request(url, null, (route_url, response) => {
-                        url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
+                        url = "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
                         request(url, response, (route_url, response) => {
                             console.log(route_url);
                             console.log(response);
