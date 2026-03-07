@@ -1,5 +1,5 @@
 <?php
-namespace Package\Raxon\Ace\Trait;
+namespace Package\Raxon\Desktop\Trait;
 
 use Raxon\App;
 use Raxon\Config;
@@ -84,7 +84,7 @@ trait Main {
             $object->config('ds')
         ;
         $dir_target = $dir_application .
-            'Ace' .
+            'Desktop' .
             $object->config('ds')
         ;
         if(!File::exist($dir_target)){

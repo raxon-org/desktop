@@ -1,6 +1,6 @@
 <?php
 
-namespace Package\Raxon\Ace\Controller;
+namespace Package\Raxon\Desktop\Controller;
 
 use Raxon\App;
 
@@ -19,8 +19,8 @@ class Cli extends Controller {
     const DIR = __DIR__ . '/';
     const MODULE_INFO = 'Info';
     const INFO = [
-        '{{binary()}} raxon ace',
-        '{{binary()}} raxon ace setup',
+        '{{binary()}} raxon desktop',
+        '{{binary()}} raxon desktop setup',
     ];
 
     /**

@@ -1,7 +1,7 @@
-{{$register = Package.Raxon.Ace:Init:register()}}
+{{$register = Package.Raxon.Desktop:Init:register()}}
 {{if(!is.empty($register))}}
-{{Package.Raxon.Ace:Import:role.system()}}
+{{Package.Raxon.Desktop:Import:role.system()}}
 {{$flags = flags()}}
 {{$options = options()}}
-{{Package.Raxon.Ace:Main:install($flags, $options)}}
+{{Package.Raxon.Desktop:Main:install($flags, $options)}}
 {{/if}}
