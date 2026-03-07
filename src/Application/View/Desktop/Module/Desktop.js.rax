@@ -56,7 +56,7 @@ require(
             url += '&sort[user]=ASC&sort[name]=ASC';
             url += '&limit=*';
             request(url, null, (route_url, response) => {
-                url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
+                url = "{{server.url(\"{{/literal}}{{frontend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
                 request(url, response, (route_url, response) => {
                     console.log(route_url);
                     console.log(response);
