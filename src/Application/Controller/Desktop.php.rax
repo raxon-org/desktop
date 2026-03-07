@@ -1,0 +1,60 @@
+{{$options = options()}}
+<?php
+namespace Domain\{{php.namespace.host($options.frontend.host)}}\Application\Desktop\Controller;
+
+use Raxon\App;
+use Raxon\Module\Controller;
+
+use Exception;
+
+use Raxon\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\LocateException;
+use Raxon\Exception\UrlEmptyException;
+use Raxon\Exception\UrlNotExistException;
+use Raxon\Module\Core;
+
+class Desktop extends Controller {
+    const DIR = __DIR__ . DIRECTORY_SEPARATOR;
+
+    /**
+     * @throws ObjectException
+     * @throws LocateException
+     * @throws UrlEmptyException
+     * @throws UrlNotExistException
+     * @throws FileWriteException
+     * @throws Exception
+     */
+    public static function main(App $object){
+        $name = Desktop::name(__FUNCTION__, __CLASS__, '/');
+        if(App::contentType($object) == App::CONTENT_TYPE_HTML){
+            $url = Desktop::locate($object, 'Main/Main');
+            $object->data('template.name', $name);
+            $object->data('template.dir', Desktop::DIR);
+            $view = Desktop::response($object, $url);
+        } else {
+            $url = Desktop::locate($object, $name);
+            $view = Desktop::response($object, $url);
+        }
+        return $view;
+    }
+
+    /**
+     * @throws LocateException
+     * @throws ObjectException
+     * @throws UrlEmptyException
+     * @throws UrlNotExistException
+     * @throws FileWriteException
+     * @throws Exception
+     */
+    public static function navigation(App $object){
+        $name = Desktop::name(__FUNCTION__, __CLASS__, '/');
+        if(App::contentType($object) == App::CONTENT_TYPE_HTML){
+            Core::redirect('/');
+        } else {
+            $url = Desktop::locate($object, $name);
+            $view = Desktop::response($object, $url);
+        }
+        return $view;
+    }
+}

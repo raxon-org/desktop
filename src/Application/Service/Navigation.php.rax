@@ -1,0 +1,118 @@
+{{$options = options()}}
+<?php
+namespace Domain\{{php.namespace.host($options.frontend.host)}}\Application\Desktop\Service;
+
+use Exception;
+use Raxon\App;
+use Raxon\Exception\ObjectException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Module\Core;
+use Raxon\Module\Data;
+use Raxon\Module\Sort;
+use Raxon\Parse\Module\Parse;
+
+class Navigation {
+
+    /**
+     * @throws ObjectException
+     * @throws FileWriteException
+     * @throws Exception
+     */
+    public static function menu(App $object): array
+    {
+        $menu = $object->request('list');
+        if($menu){
+            $data = new Data($object->data());
+            $flags = App::flags($object);
+            $options = (object) [
+                'source' => 'internal_' . substr(Core::uuid_variable(), 1)
+            ];
+            $parse = new Parse($object, $data, $flags, $options);
+            //can be user input so limit these functions
+            $limit = $parse->limit();
+            $parse->limit([
+                'function' => [
+                    'Route.prefix',
+                    'Route.get',
+                    'Route.name'
+                ]
+            ]);
+            $menu = $parse->compile($menu, $data);
+            $parse->setLimit($limit);
+            if($menu){
+                $menu = Sort::list($menu)->with(['name' => 'ASC']);
+                $list = [];
+                $list['#'] = [];
+                $list['A'] = [];
+                $list['B'] = [];
+                $list['C'] = [];
+                $list['D'] = [];
+                $list['E'] = [];
+                $list['F'] = [];
+                $list['G'] = [];
+                $list['H'] = [];
+                $list['I'] = [];
+                $list['J'] = [];
+                $list['K'] = [];
+                $list['L'] = [];
+                $list['M'] = [];
+                $list['N'] = [];
+                $list['O'] = [];
+                $list['P'] = [];
+                $list['Q'] = [];
+                $list['R'] = [];
+                $list['S'] = [];
+                $list['T'] = [];
+                $list['U'] = [];
+                $list['V'] = [];
+                $list['W'] = [];
+                $list['X'] = [];
+                $list['Y'] = [];
+                $list['Z'] = [];
+                foreach($menu as $uuid => $node){
+                    $letter = strtoupper(substr($node->name, 0, 1));
+                    if(
+                        in_array(
+                            $letter,
+                            [
+                                'A',
+                                'B',
+                                'C',
+                                'D',
+                                'E',
+                                'F',
+                                'G',
+                                'H',
+                                'I',
+                                'J',
+                                'K',
+                                'L',
+                                'M',
+                                'N',
+                                'O',
+                                'P',
+                                'Q',
+                                'R',
+                                'S',
+                                'T',
+                                'U',
+                                'V',
+                                'W',
+                                'X',
+                                'Y',
+                                'Z'
+                            ]
+                        )
+                    ){
+                        $list[$letter][] = $node;
+                    } else {
+                        $list['#'][] = $node;
+                    }
+                }
+                return $list;
+            }
+
+        }
+        return [];
+    }
+}

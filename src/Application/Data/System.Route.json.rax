@@ -1,0 +1,34 @@
+{
+    "System": {
+        "Route": [
+            {
+                "name": "application-desktop-navigation",
+                "path": "\/Application\/Desktop\/Navigation\/",
+                "host": "{{options('frontend.host')}}",
+                "controller": "Domain:{{app.controller.host(options('frontend.host'))}}:Application:Desktop:Controller:Desktop:navigation",
+                "priority": 3001,
+                "method": [
+                    "GET",
+                    "POST"
+                ]
+            },
+            {
+                "name": "application-desktop",
+                "path": "\/Application\/Desktop\/",
+                "host": "{{options('frontend.host')}}",
+                "controller": "Domain:{{app.controller.host(options('frontend.host'))}}:Application:Desktop:Controller:Desktop:main",
+                "priority": 3002,
+                "method": [
+                    "GET",
+                    "POST"
+                ]
+            },
+            {
+                "name": "application-desktop-icon",
+                "url": "\/Application\/Desktop\/Icon\/Icon.png",
+                "host": "{{options('frontend.host')}}",
+                "priority": 3003
+            }
+        ]
+    }
+}

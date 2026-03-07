@@ -1,0 +1,15 @@
+{{$options = options()}}
+<?php
+namespace Plugin;
+
+use Domain\{{php.namespace.host($options.frontend.host)}}\Application\Desktop\Service\Navigation;
+
+trait Menu_Get {
+
+    public function menu_get(): array
+    {
+        $object = $this->object();
+        return Navigation::menu($object);
+    }
+
+}

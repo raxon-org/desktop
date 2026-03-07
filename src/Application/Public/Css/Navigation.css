@@ -1,0 +1,140 @@
+section[name="application-desktop-navigation"] {
+}
+
+body[data-has="application-desktop-navigation"] {
+    background-image: url( '/Application/Desktop/Image/Background/background-100.png');
+}
+
+section[name="application-desktop-navigation"] div.start {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: rgba(255, 255, 255, 1);
+    width: 150px;
+    height: 100%;
+    background: rgba(233, 223, 221, 0.1);
+    background: rgba(33, 33, 33, 1);
+    background: rgba(0, 33, 177, 0.4);
+    background: rgba(32, 60, 150, 0.6); /** less transparant **/
+
+}
+
+section[name="application-desktop-navigation"] img.start {
+    width: 40px;
+    padding: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+}
+
+section[name="application-desktop-navigation"] nav {
+    position: absolute;
+    left: 150px;
+    top: 0;
+    height: 100%;
+    min-width: 250px;
+    background: rgba(233, 223, 221, 0.1);
+    background: rgba(33, 33, 33, 0.9);
+    background: rgba(0, 33, 177, 0.4);
+    background: rgba(32, 60, 150, 0.6); /** less transparant **/
+    border-right: 1px solid rgba(0, 33, 177, 0.8);
+    z-index: 2;
+    overflow: auto;
+}
+
+section[name="application-desktop-navigation"] ul {
+    list-style-type: none;
+}
+
+section[name="application-desktop-navigation"] ul li {
+}
+
+section[name="application-desktop-navigation"] .menu img.icon {
+    min-width: 30px;
+    max-height: 40px;
+    margin-left: auto;
+    margin-right: 10px;
+    position: relative;
+    /*
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 5px 5px rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px rgba(0, 33, 177, 0.2);
+    border: 1px solid rgba(0, 33, 177, 0.8);
+     */
+    top: 18px;
+    border-radius: 5px;
+}
+
+section[name="application-desktop-navigation"] li p {
+    margin-top: -15px;
+}
+
+section[name="application-desktop-navigation"] li.title {
+    color: rgba(233, 223, 221, 1);
+}
+
+section[name="application-desktop-navigation"] li.item {
+    padding-left: 20px;
+    color: rgba(39, 170, 255, 1);
+    color: rgba(255, 124, 13, 1);
+    color: rgba(255, 255, 255, 1);
+    padding-right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 33, 177, 0.4));
+    border: 1px solid rgba(39, 170, 255, 1);
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+section[name="application-desktop-navigation"] li.item:hover {
+    background: rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 33, 177, 0.4));
+    color: rgba(255, 124, 13, 1);
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 5px 5px rgba(255, 255, 255, 0.2);
+    cursor: default;
+}
+
+section[name="application-desktop-navigation"] li.item:first-letter {
+    color: rgba(39, 170, 255, 1);
+}
+
+section[name="application-desktop-navigation"] li.item:hover:first-letter {
+    color: rgba(255, 124, 13, 1);
+}
+
+
+
+section[name="application-desktop-navigation"] li svg {
+    width: 16px;
+    fill: rgba(72, 158, 173, 1);
+}
+
+section[name="application-desktop-navigation"] .clock {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 140px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    height: calc(60px);
+    text-align: center;
+    overflow: auto;
+    background-color: rgba(72, 158, 173, 1);
+    background-color: rgba(55, 25, 63, 1);
+    background: rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 33, 177, 0.4));
+    border: 1px solid rgba(39, 170, 255, 1);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 1);
+}
+
+/*
+section[name="application-desktop-navigation"] .menu img[src="/Application/Ollama/Icon/Icon.png"] {
+    margin-left: 10px;
+    margin-right: 15px;
+}
+ */
