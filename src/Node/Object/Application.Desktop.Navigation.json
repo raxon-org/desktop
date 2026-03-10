@@ -1,0 +1,54 @@
+{
+  "Node": {
+    "#class": "Application.Desktop.Navigation",
+    "type": "object",
+    "property": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "user",
+        "type": "uuid"
+      },
+      {
+        "name": "route",
+        "type": "object",
+        "property": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "get",
+            "type": "string"
+          }
+        ],
+        "multiple": false
+      },
+      {
+        "name": "url",
+        "type": "string"
+      },
+      {
+        "name": "svg",
+        "type": "string"
+      },
+      {
+        "name": "image",
+        "type": "string"
+      },
+      {
+        "name": "uuid",
+        "type": "uuid"
+      },
+      {
+        "name": "#class",
+        "type": "string"
+      }
+    ]
+  },
+  "is.unique": [
+    "action, options.priority"
+  ]
+}

@@ -1,0 +1,283 @@
+{
+    "Application": {
+        "Desktop": {
+          "Navigation": {
+            "count": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "list": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "page": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "read": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "record": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "create": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "create_many": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "put": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "put_many": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "patch": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "patch_many": {
+              "output": [
+                {
+                  "role": "ROLE_SYSTEM",
+                  "property": [
+                    "uuid",
+                    "name",
+                    "user",
+                    "route",
+                    "url",
+                    "svg",
+                    "#class"
+                  ],
+                  "object": {
+                    "route": {
+                      "multiple": false,
+                      "output": [
+                        "name",
+                        "get"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+    }
+}
