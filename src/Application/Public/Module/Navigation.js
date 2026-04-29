@@ -49,6 +49,11 @@ navigation.init = (id) => {
          */
     } else {
         console.log(active_user);
+        url = file.data.get('route.backend.node.application.desktop.navigation');
+        url += '?filter[user][strictly-exact]=' + user.get('uuid');
+        url += '&sort[user]=ASC&sort[name]=ASC';
+        url += '&limit=*';
+        console.log(url);
         /*
         header('Authorization', 'Bearer ' + user.token());
         url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/";

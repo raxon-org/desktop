@@ -20,6 +20,7 @@ require(
             "controller" : "{{raw|>object(config('controller'), 'json-line')}}",
             "section.id" : "{{$id}}",
             "route.backend.user.current" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
+            "route.backend.node.application.desktop.navigation": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/"
         });
         navigation.init("{{$id}}");
     }
