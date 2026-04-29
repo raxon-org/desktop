@@ -48,27 +48,23 @@ navigation.init = (id) => {
         });
          */
     } else {
-        console.log(active_user);
         url = file.data.get('route.backend.node.application.desktop.navigation');
         url += '?filter[user][strictly-exact]=' + user.get('uuid');
         url += '&sort[user]=ASC&sort[name]=ASC';
         url += '&limit=*';
-        console.log(url);
-        /*
         header('Authorization', 'Bearer ' + user.token());
-        url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/";
-        url += '?filter[user][strictly-exact]=' + user.get('uuid');
-        url += '&sort[user]=ASC&sort[name]=ASC';
-        url += '&limit=*';
         request(url, null, (route_url, response) => {
+            console.log(route_url);
+            console.log(response);
+            /*
             url = "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
             request(url, response, (route_url, response) => {
                 console.log(route_url);
                 console.log(response);
                 navigation.init("{{$id}}"); //taskbar_init
             });
+            */
         });
-         */
     }
 }
 
