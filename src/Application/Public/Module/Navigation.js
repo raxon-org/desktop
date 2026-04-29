@@ -1,11 +1,72 @@
-import { taskbar } from "/Application/Desktop/Module/Taskbar.js";
+//import { taskbar } from "/Application/Desktop/Module/Taskbar.js";
 import { getSectionById, getSectionByName } from "/Module/Section.js";
 //import { dialog } from "/Dialog/Module/Dialog.js";
 import user from "/Module/User.js";
+import { file } from "/Application/Desktop/Module/File.js"
 
 let navigation = {};
 
 navigation.init = (id) => {
+    let active_user = user.get();
+    console.log(active_user);
+    let url;
+    if(is.empty(active_user)){
+        url = file.data.get('route.backend.user.current');
+        console.log(url);
+        alert('yes');
+        /*
+        url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
+        header('Authorization', 'Bearer ' + user.token());
+        request(url, null, (url, response) => {
+            if (!is.empty(response.node)) {
+                user.set(response.node);
+                header('Authorization', 'Bearer ' + user.token());
+                url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/";
+                url += '?filter[user][strictly-exact]=' + user.get('uuid');
+                url += '&sort[user]=ASC&sort[name]=ASC';
+                url += '&limit=*';
+                request(url, null, (route_url, response) => {
+                    url = "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
+                    request(url, response, (route_url, response) => {
+                        console.log(route_url);
+                        console.log(response);
+                        navigation.init("{{$id}}"); //tasbar_init
+                        taskbar.init({
+                            'id': "{{$id}}",
+                            'sse': {
+                                'url': "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Task/?user.key=" + user.get('key'),
+                            }
+                        });
+                    });
+
+                });
+            } else {
+                redirect("{{route.get('user-login')}}");
+                console.warn('load authentication mechanism');
+            }
+        });
+         */
+    } else {
+        console.log(active_user);
+        /*
+        header('Authorization', 'Bearer ' + user.token());
+        url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/";
+        url += '?filter[user][strictly-exact]=' + user.get('uuid');
+        url += '&sort[user]=ASC&sort[name]=ASC';
+        url += '&limit=*';
+        request(url, null, (route_url, response) => {
+            url = "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
+            request(url, response, (route_url, response) => {
+                console.log(route_url);
+                console.log(response);
+                navigation.init("{{$id}}"); //taskbar_init
+            });
+        });
+         */
+    }
+}
+
+navigation.taskbar_init = (id) => {
     console.log(id);
     let section = getSectionById(id);
     if(!section){
@@ -25,7 +86,7 @@ navigation.init = (id) => {
     //taskbar.init();
 }
 
-navigation.start = (section) => {
+navigation.2start = (section) => {
     let start = section.select('img.start');
     if(!start){
         return;
