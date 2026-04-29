@@ -77,10 +77,7 @@ navigation.taskbar_init = (id) => {
     section.removeClass('display-none');
 
     const controller = file.data.get('controller');
-    console.log(controller);
-
-
-    let nav = section.select('section[name="application-desktop-navigation"]');
+    let nav = section.select('section[name="application-' + controller?.name + '"]');
     nav.removeClass('display-none');
     navigation.start(nav);
     navigation.menu(nav);
