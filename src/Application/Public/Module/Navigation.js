@@ -10,6 +10,7 @@ navigation.init = (id) => {
     let active_user = user.get();
     console.log(active_user);
     let url;
+    navigation.taskbar_init(id);
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
         console.log(url);
