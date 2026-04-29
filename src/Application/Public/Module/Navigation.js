@@ -68,25 +68,18 @@ navigation.init = (id) => {
 }
 
 navigation.taskbar_init = (id) => {
-    console.log(id);
     let section = getSectionById(id);
     if(!section){
         console.warn('Cannot find section with id: ' + id);
         return
     }
     section.removeClass('display-none');
-
-    const controller = file.data.get('controller');
-    const name = 'application-' + controller?.name;
-    console.log(name);
-    let nav = section.select('section[name="' + name + '"]');
-    nav.removeClass('display-none');
-    navigation.start(nav);
-    navigation.menu(nav);
-    navigation.clock(nav);
+    navigation.start(section);
+    navigation.menu(section);
+    navigation.clock(section);
     _('navigation').collection(
         'clock.interval.id',
-        setInterval(() => { navigation.clock(nav); },1000)
+        setInterval(() => { navigation.clock(section); },1000)
     );
     //taskbar.init();
 }
