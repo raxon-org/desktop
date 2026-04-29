@@ -19,7 +19,6 @@ require(
         file.data.set({
             "controller" : "{{raw|>object(config('controller'), 'json-line')}}",
             "section.id" : "{{$id}}",
-            "active": active,
             "route.backend.user.current" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
         });
         navigation.init("{{$id}}");
