@@ -10,7 +10,6 @@ navigation.init = (id) => {
     let active_user = user.get();
     console.log(active_user);
     let url;
-    navigation.taskbar_init(id);
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
         console.log(url);
@@ -53,17 +52,13 @@ navigation.init = (id) => {
         url += '&sort[user]=ASC&sort[name]=ASC';
         url += '&limit=*';
         header('Authorization', 'Bearer ' + user.token());
-        request(url, null, (route_url, response) => {
-            console.log(route_url);
+        request(url, null, (route_backend_url, response) => {
             console.log(response);
-            /*
-            url = "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}Application/Desktop/Navigation/";
-            request(url, response, (route_url, response) => {
-                console.log(route_url);
+            url = file.data.get('route.frontend.node.application.desktop.navigation');
+            request(url, response, (route_frontend_url, response) => {
                 console.log(response);
-                navigation.init("{{$id}}"); //taskbar_init
+                navigation.tskbar_init("{{$id}}"); //taskbar_init
             });
-            */
         });
     }
 }
