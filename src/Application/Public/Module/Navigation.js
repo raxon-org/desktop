@@ -12,8 +12,7 @@ navigation.init = (id) => {
     let url;
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
-        console.log(url);
-        alert('yes');
+        redirect("{{route.get('user-login')}}");
         /*
         url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
         header('Authorization', 'Bearer ' + user.token());
