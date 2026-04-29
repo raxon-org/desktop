@@ -57,7 +57,7 @@ navigation.init = (id) => {
             url = file.data.get('route.frontend.node.application.desktop.navigation');
             request(url, response, (route_frontend_url, response) => {
                 console.log(response);
-                navigation.tskbar_init("{{$id}}"); //taskbar_init
+                navigation.taskbar_init("{{$id}}"); //taskbar_init
             });
         });
     }
