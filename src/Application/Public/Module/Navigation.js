@@ -78,7 +78,6 @@ navigation.taskbar_init = (id) => {
 
     const controller = file.data.get('controller');
     console.log(controller);
-    alert('in the console');
 
 
     let nav = section.select('section[name="application-desktop-navigation"]');
