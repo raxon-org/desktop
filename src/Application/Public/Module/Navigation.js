@@ -86,7 +86,7 @@ navigation.taskbar_init = (id) => {
     //taskbar.init();
 }
 
-navigation.2start = (section) => {
+navigation.start = (section) => {
     let start = section.select('img.start');
     if(!start){
         return;
