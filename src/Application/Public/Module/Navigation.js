@@ -9,8 +9,6 @@ let navigation = {};
 navigation.init = (id) => {
     let active_user = user.get();
     console.log(active_user);
-    console.log(document.cookie);
-    alert('cookie');
     let url;
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
