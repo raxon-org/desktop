@@ -12,6 +12,7 @@ navigation.init = (id) => {
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
         console.log(user.token());
+        console.log('Length: ' + user.token().length);
         //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
         header('Authorization', 'Bearer ' + user.token());
         request(url, null, (url, response) => {
@@ -41,7 +42,8 @@ navigation.init = (id) => {
         url += '&sort[user]=ASC&sort[name]=ASC';
         url += '&limit=*';
         header('Authorization', 'Bearer ' + user.token());
-        console.log(user.token);
+        console.log(user.token());
+        console.log('Length: ' + user.token().length);
         request(url, null, (route_backend_url, response) => {
             url = file.data.get('route.frontend.node.application.desktop.navigation');
             request(url, response, (route_frontend_url, response) => {
