@@ -1,6 +1,4 @@
-//import { taskbar } from "/Application/Desktop/Module/Taskbar.js";
 import { getSectionById, getSectionByName } from "/Module/Section.js";
-//import { dialog } from "/Dialog/Module/Dialog.js";
 import user from "/Module/User.js";
 import { file } from "/Application/Desktop/Module/File.js"
 
@@ -8,12 +6,9 @@ let navigation = {};
 
 navigation.init = (id) => {
     let active_user = user.get();
-    console.log(active_user);
     let url;
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
-        console.log(user.token());
-        console.log('Length: ' + user.token().length);
         //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
         header('Authorization', 'Bearer ' + user.token());
         request(url, null, (url, response) => {
@@ -43,8 +38,6 @@ navigation.init = (id) => {
         url += '&sort[user]=ASC&sort[name]=ASC';
         url += '&limit=*';
         header('Authorization', 'Bearer ' + user.token());
-        console.log(user.token());
-        console.log('Length: ' + user.token().length);
         request(url, null, (route_backend_url, response) => {
             url = file.data.get('route.frontend.node.application.desktop.navigation');
             request(url, response, (route_frontend_url, response) => {
@@ -110,7 +103,6 @@ navigation.start = (section) => {
 
 navigation.menu = (section) => {
     const list = section.select('nav.menu a');
-    console.log(list);
     if(!list){
         return;
     }
@@ -135,7 +127,6 @@ navigation.menu = (section) => {
                         return;
                     }
                     menu.toggleClass('display-none');
-                    console.log(response);
                 });
             });
         }
