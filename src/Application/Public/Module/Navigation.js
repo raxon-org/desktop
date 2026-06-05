@@ -49,7 +49,7 @@ navigation.init = (id) => {
             console.log(url);
             for(let i=0; i < response?.list?.length; i++){
                 let item = response?.list[i];
-                item.route.get =  "{{route.name(route.name(), route.get())}}";
+                item.route.get =  "{{route.name(route.name('abc'), route.get('abc'))}}";
             }
             request(url, response, (route_frontend_url, response) => {
                 navigation.taskbar_init(id); //taskbar_init
