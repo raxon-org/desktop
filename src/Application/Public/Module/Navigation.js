@@ -7,10 +7,8 @@ let navigation = {};
 navigation.init = (id) => {
     let active_user = user.get();
     let url;
-    console.log(active_user);
     if(is.empty(active_user)){
         url = file.data.get('route.backend.user.current');
-        console.log(url);
         //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
         header('Authorization', 'Bearer ' + user.token());
         request(url, null, (url, response) => {
@@ -21,12 +19,9 @@ navigation.init = (id) => {
                 url += '?filter[user][strictly-exact]=' + user.get('uuid');
                 url += '&sort[user]=ASC&sort[name]=ASC';
                 url += '&limit=*';
-                console.log(url);
                 header('Authorization', 'Bearer ' + user.token());
                 request(url, null, (route_backend_url, response) => {
                     url = file.data.get('route.frontend.node.application.desktop.navigation');
-                    console.log(url);
-                    response?.list?[0].route.get: "{{route.name(route.name(), route.get())}}";
                     request(url, response, (route_frontend_url, response) => {
                         navigation.taskbar_init(id); //taskbar_init
                     });
@@ -43,14 +38,8 @@ navigation.init = (id) => {
         url += '&sort[user]=ASC&sort[name]=ASC';
         url += '&limit=*';
         header('Authorization', 'Bearer ' + user.token());
-        console.log(url);
         request(url, null, (route_backend_url, response) => {
             url = file.data.get('route.frontend.node.application.desktop.navigation');
-            console.log(url);
-            for(let i=0; i < response?.list?.length; i++){
-                let item = response?.list[i];
-                item.route.get =  "{{route.name(route.name2('abc'), route.get('abc'))}}";
-            }
             request(url, response, (route_frontend_url, response) => {
                 navigation.taskbar_init(id); //taskbar_init
             });
