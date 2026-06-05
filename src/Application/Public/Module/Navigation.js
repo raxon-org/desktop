@@ -47,7 +47,10 @@ navigation.init = (id) => {
         request(url, null, (route_backend_url, response) => {
             url = file.data.get('route.frontend.node.application.desktop.navigation');
             console.log(url);
-            response?.list?[0].route.get: "{{route.name(route.name(), route.get())}}";
+            for(let i=0; i < response?.list?.length; i++){
+                let item = response?.list[i];
+                item.route.get =  "{{route.name(route.name(), route.get())}}";
+            }
             request(url, response, (route_frontend_url, response) => {
                 navigation.taskbar_init(id); //taskbar_init
             });
