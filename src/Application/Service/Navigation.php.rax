@@ -31,11 +31,9 @@ class Navigation {
             //can be user input so limit these functions
             $limit = $parse->limit();
             $parse->limit([
-                'function' => [
-                    'Route.prefix',
-                    'Route.get',
-                    'Route.name'
-                ]
+                'Route.prefix',
+                'Route.get',
+                'Route.name'
             ]);
             $menu = $parse->compile($menu, $data);
             $parse->setLimit($limit);
