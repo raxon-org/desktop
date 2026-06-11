@@ -19,7 +19,6 @@ navigation.init = (id) => {
                 url += '?filter[user][strictly-exact]=' + user.get('uuid');
                 url += '&sort[user]=ASC&sort[name]=ASC';
                 url += '&limit=*';
-                header('Authorization', 'Bearer ' + user.token());
                 request(url, null, (route_backend_url, response) => {
                     url = file.data.get('route.frontend.node.application.desktop.navigation');
                     request(url, response, (route_frontend_url, response) => {
