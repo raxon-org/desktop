@@ -22,6 +22,10 @@
     {
       "name": "Application:Desktop:Navigation:delete",
       "#class": "Account.Permission"
+    },
+    {
+      "name": "Application:Desktop:Navigation:list",
+      "#class": "Account.Permission"
     }
   ]
 }
