@@ -89,7 +89,6 @@ trait Main {
     public function install_api(object $options)
     {
         $object = $this->object();
-        ddd($options);
         $dir_read = $object->config('project.dir.vendor') .
             $object->request('package') .
             $object->config('ds') .
@@ -102,6 +101,10 @@ trait Main {
             $options->frontend->name .
             $object->config('ds')
         ;
+        d($dir_read);
+        dd($dir_target);
+
+
         if(!File::exist($dir_target)){
             Dir::create($dir_target, Dir::CHMOD);
             File::permission($object, [
