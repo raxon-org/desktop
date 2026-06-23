@@ -90,17 +90,39 @@ trait Main {
     {
         $object = $this->object();
         ddd($options);
-        $dir_read_api = $object->config('project.dir.vendor') .
+        $dir_read = $object->config('project.dir.vendor') .
             $object->request('package') .
             $object->config('ds') .
             'src' .
             $object->config('ds') .
             $object->config('dictionary.api') .
-            $object->config('ds');
-        $dir_api = $object->config('project.dir.domain') .
-            $options->frontend->host .
-            $object->config('ds');
-        $dir_read_application = $object->config('project.dir.vendor') .
+            $object->config('ds')
+        ;
+        $dir_target = $object->config('project.dir.domain') .
+            $options->frontend->name .
+            $object->config('ds')
+        ;
+        if(!File::exist($dir_target)){
+            Dir::create($dir_target, Dir::CHMOD);
+            File::permission($object, [
+                'target' => $dir_target,
+            ]);
+        }
+        $dir = new Dir();
+        $read = $dir->read($dir_read, true);
+        foreach($read as $nr => $file){
+            $explode = explode($dir_read, $file->url, 2);
+            if(array_key_exists(1, $explode)){
+                $file->target = $dir_target . $explode[1];
+            }
+        }
+        ddd($read);
+    }
+
+    public function install_application(object $options){
+        $object = $this->object();
+        /*
+         * $dir_read_application = $object->config('project.dir.vendor') .
             $object->request('package') .
             $object->config('ds') .
             'src' .
@@ -115,10 +137,7 @@ trait Main {
         $dir_target_application = $dir_application .
             self::NAME .
             $object->config('ds');
-    }
-
-    public function install_application(object $options){
-        $object = $this->object();
+         */
         /*
         $dir_read_api = $object->config('project.dir.vendor') .
             $object->request('package') .
