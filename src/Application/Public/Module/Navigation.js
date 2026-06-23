@@ -60,6 +60,10 @@ navigation.taskbar_init = (id) => {
         'clock.interval.id',
         setInterval(() => { navigation.clock(section); },1000)
     );
+    let url_sse2 = file.data.get('route.backend.sse2');
+    let url_sse = file.data.get('route.backend.sse');
+    console.log(url_sse2);
+    console.log(url_sse);
     //taskbar.init();
 }
 

@@ -1,0 +1,38 @@
+{{$options = options()}}
+<?php
+namespace Domain\{{php.namespace.host($options.backend.host)}}\Module;
+
+use Raxon\App;
+use Raxon\Config;
+
+use Raxon\Module\Core;
+use Raxon\Module\Dir;
+use Raxon\Module\File;
+
+use Exception;
+
+class Sse {
+
+    /**
+     * @throws Exception
+     */
+    public static function start(App $object, $role, $user): mixed
+    {
+        if(
+            property_exists($role, 'name' ) &&
+            in_array(
+                $role->name,
+                [
+                    'ROLE_ADMIN',
+                    'ROLE_SYSTEM'
+                ],
+                true
+            )
+        ){
+            d('start');
+            d($role);
+            ddd($user);
+        }
+        return null;
+    }
+}

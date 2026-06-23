@@ -1,0 +1,18 @@
+{
+    "System": {
+      "Route": [
+        {
+          "#class": "System.Route",
+          "name": "api-desktop-sse",
+          "path": "/Desktop/Sse/",
+          "host": "{{options('backend.host')}}",
+          "controller": "Domain:{{app.controller.host(options('backend.host'))}}:Controller:Desktop:sse",
+          "priority": 2001,
+          "method": [
+            "GET",
+            "POST"
+          ]
+        }
+      ]
+    }
+}

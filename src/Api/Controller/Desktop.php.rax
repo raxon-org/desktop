@@ -1,0 +1,327 @@
+{{$options = options()}}
+<?php
+namespace Domain\{{php.namespace.host($options.backend.host)}}\Controller;
+
+use Doctrine\ORM\Exception\ORMException;
+use Package\Raxon\Account\Module\Permission;
+
+use Raxon\App;
+use Raxon\Config;
+
+use Raxon\Module\Core;
+use Raxon\Module\Controller;
+
+use Raxon\Module\Dir;
+use Raxon\Module\File;
+
+use Raxon\Module\Response;
+
+use Raxon\Doctrine\Module\Database;
+
+use Raxon\Node\Module\Node;
+
+use Exception;
+
+use Raxon\Exception\AuthorizationException;
+use Raxon\Exception\LocateException;
+use Raxon\Exception\UrlEmptyException;
+use Raxon\Exception\UrlNotExistException;
+use Raxon\Exception\FileWriteException;
+use Raxon\Exception\ObjectException;
+
+class Connection extends Controller {
+    const DIR = __DIR__ . DIRECTORY_SEPARATOR;
+    const NAME = 'Connection';
+
+    /**
+     * @throws Exception
+     */
+    public static function sse(App $object){
+        $user = User::get_by_authorization($object);
+        dd($user);
+
+
+
+
+        $key = $object->request('user_key');
+        $uuid = $object->request('uuid');
+        $config = Database::config($object);
+        $connection = $object->config('doctrine.environment.system.' . $object->config('framework.environment'));
+        if($connection === null){
+            $connection = $object->config('doctrine.environment.system.*');
+        }
+        $entityManager = Database::entity_manager($object, $config, $connection);
+        $repository = $entityManager->getRepository('\\Entity\\User');
+        $user = $repository->findOneBy([
+            'key' => $key
+        ]);
+        if(!$user){
+            throw new Exception('Access denied...');
+        }
+        set_time_limit(2 * 60 * 60); // was 10 minutes, now 2 hour per response, codellama:70b can take a while
+        date_default_timezone_set("Europe/Amsterdam");
+        header("Cache-Control: no-cache");
+        header('Content-Encoding: none');
+        header("Content-Type: text/event-stream");
+        header("Connection: keep-alive");
+        header("Keep-Alive: timeout=30, max=7200");
+        header("Transfer-encoding: chunked");
+
+//        @ini_set('zlib.output_compression', 0);
+//        @ini_set('implicit_flush', 1);
+        Core::interactive();
+        flush();
+        echo ":" . str_repeat("a", 4096) . "\n";
+        echo "\n\n";
+        flush();
+        $counter = 0;
+        $id = 1;
+        $previous = false;
+        $is_first_run = false;
+        $timeout = 0;
+        $pointer = 0;
+        $class = 'Raxon.Ollama.Input';
+        $node = new Node($object);
+        $queue = $node->count($class, $node->role_system(), [
+            'filter' => [
+                'status'  => 'start'
+            ]
+        ]);
+        $is_outdated = false;
+        $instance = false;
+        $read = [];
+        while(true){
+            if($instance){
+                $object->config('ramdisk.url', $instance->config('ramdisk.url'));
+            }
+            $url = $object->config('ramdisk.url') .
+                $object->config(Config::POSIX_ID) .
+                $object->config('ds') .
+                'Ollama' .
+                $object->config('ds') .
+                $uuid .
+                $object->config('extension.jsonl')
+            ;
+            if(File::exist($url) === false && $is_outdated === false){
+                $is_outdated = true;
+                //config ramdisk.url might be outdated
+                echo ":" . str_repeat("a", 4096) . "\n";
+                echo "\n\n";
+                flush();
+                usleep(500 * 1000);
+                continue;
+            }
+            $data = false;
+            if(File::exist($url)){
+                $data = File::read($url);
+            }
+            $json_list = [];
+            if(!empty($data)){
+                $char_list = mb_str_split($data);
+                $is_single_quote = false;
+                $is_double_quote = false;
+                $line = '';
+                foreach($char_list as $nr => $char){
+                    $previous = $char_list[$nr - 1] ?? null;
+                    if(
+                        $char === '"' &&
+                        $previous !== '\\' &&
+                        $is_single_quote === false &&
+                        $is_double_quote === false
+                    ){
+                        $is_double_quote = true;
+                    }
+                    elseif(
+                        $char === '"' &&
+                        $previous !== '\\' &&
+                        $is_single_quote === false &&
+                        $is_double_quote === true
+                    ){
+                        $is_double_quote = false;
+                    }
+                    elseif(
+                        $char === '\'' &&
+                        $previous !== '\\' &&
+                        $is_single_quote === false &&
+                        $is_double_quote === false
+                    ){
+                        $is_single_quote = true;
+                    }
+                    elseif(
+                        $char === '\'' &&
+                        $previous !== '\\' &&
+                        $is_single_quote === true &&
+                        $is_double_quote === false
+                    ){
+                        $is_single_quote = false;
+                    }
+                    elseif(
+                        $char === PHP_EOL &&
+                        $is_single_quote === false &&
+                        $is_double_quote === false
+                    ){
+                        $json_list[] = $line . $char;
+                        $line = '';
+                        continue;
+                        /*
+                        $counter = 0;
+                        echo "id: $id\n";
+                        echo "event: ping\n";
+                        echo 'data: ' . $line;
+                        echo "\n\n";
+                        flush();
+                        $id++;
+                        */
+                    }
+                    $line .= $char;
+                }
+            }
+            $is_event = false;
+            if($json_list){
+                foreach($json_list as $json_nr => $line){
+                    if($json_nr < $pointer){
+                        continue;
+                    }
+                    $is_event = true;
+                    $counter = 0;
+                    if(array_key_exists('node', $read)){
+                        $line = str_replace('"done":false', '"done":false, "queue":' . $queue . ', "node": ' . Core::object($read['node'], Core::JSON_LINE) . ', "memory": "'. round(memory_get_usage(true) / 1024 / 1024, 2) . ' MB"', $line);
+                    } else {
+                        $line = str_replace('"done":false', '"done":false, "queue":' . $queue . ', "memory": "'. round(memory_get_usage(true) / 1024 / 1024, 2) . ' MB"', $line);
+                    }
+                    if(str_contains($line, '"done":true')){
+                        $queue = $node->count($class, $node->role_system(), [
+                            'filter' => [
+                                'status'  => 'start'
+                            ]
+                        ]);
+                        if(array_key_exists('node', $read)){
+                            $line = str_replace('"done":true', '"done":true, "queue":' . $queue . ', "node": ' . Core::object($read['node'], Core::JSON_LINE) . ', "memory": "'. round(memory_get_usage(true) / 1024 / 1024, 2) . ' MB"', $line);
+                        } else {
+                            $line = str_replace('"done":true', '"done":true, "queue":' . $queue . ', "memory": "'. round(memory_get_usage(true) / 1024 / 1024, 2) . ' MB"', $line);
+                        }
+                    }
+                    echo "id: $id\n";
+                    echo "event: ping\n";
+                    echo 'data: ' . $line;
+                    echo "\n\n";
+                    flush();
+                    $id++;
+                    $pointer++;
+                }
+            }
+            if($is_event === false){
+                usleep(500 * 1000);
+                $timeout = 3000; // 25 minutes till first response (big documents)
+                $counter++;
+                echo "id: $id\n";
+                echo "event: ping\n";
+                echo 'data: {"empty": "line", "counter": ' . $counter. ', "timeout": '. $timeout . ', "queue": ' .  $queue . ', "memory": "'. round(memory_get_usage(true) / 1024 / 1024, 2) . ' MB"}';
+                echo "\n\n";
+                flush();
+                $id++;
+            }
+            /*
+            if(!empty($previous)){
+                $explode = explode($previous, $data, 2);
+                if(array_key_exists(1, $explode)){
+                    $data = $explode[1];
+                    $data_data = explode(PHP_EOL, $data);
+                    foreach($data_data as $nr => $line){
+                        if(empty($line)){
+                            $timeout = 360; // 5 minutes till first response
+                            $counter++;
+                            echo "id: $id\n";
+                            echo "event: ping\n";
+                            echo 'data: {"empty": "line", "counter": ' . $counter. '}';
+                            echo "\n\n";
+                            flush();
+                            $id++;
+                        } else {
+                            $counter = 0;
+                            echo "id: $id\n";
+                            echo "event: ping\n";
+                            echo 'data: ' . $line;
+                            echo "\n\n";
+                            flush();
+                            $id++;
+                        }
+                    }
+                }
+            }
+            elseif($is_first_run === false) {
+                $data_data = explode(PHP_EOL, $data);
+                foreach($data_data as $nr => $line){
+                    if(empty($line)){
+                        $timeout = 360; // 5 minutes till first response
+                        $counter++;
+                        echo "id: $id\n";
+                        echo "event: ping\n";
+                        echo 'data: {"empty": "line", "counter": ' . $counter. '}';
+                        echo "\n\n";
+                        flush();
+                        $id++;
+                    } else {
+                        $counter = 0;
+                        echo "id: $id\n";
+                        echo "event: ping\n";
+                        echo 'data: ' . $line;
+                        echo "\n\n";
+                        flush();
+                        $id++;
+                    }
+
+                }
+                $is_first_run = true;
+            }
+            */
+//            echo ":" . str_repeat("a", 4096) . "\n";
+//            echo "\n\n";
+//            flush();
+//            ob_end_flush();
+//            sleep(1);
+            usleep(500 * 1000);
+            if($counter % 50 === 0 && $counter > 0){
+                $instance = App::instance();
+                $read = $node->read($class, $node->role_system(), [
+                    'uuid'  => $uuid,
+                ]);
+                $queue = $node->count($class, $node->role_system(), [
+                    'filter' => [
+                        'status'  => 'start'
+                    ]
+                ]);
+                if(array_key_exists('node', $read)){
+                    if($read['node']->status === 'finish'){
+                        echo "id: $id\n";
+                        echo "event: ping\n";
+                        echo 'data: {"finish": "true", "counter": ' .
+                            $counter .
+                            ', "queue": ' . $queue .
+                            ', "memory": "'.
+                            round(memory_get_usage(true) / 1024 / 1024, 2) .
+                            ' MB", ' .
+                            substr(Core::object($read['node'], Core::JSON_LINE), 1, -1) .
+                            '}'
+                        ;
+                        echo "\n\n";
+                        flush();
+                        break;
+                    }
+                }
+
+            }
+            if(
+                ($counter / 2) >= $timeout &&
+                $timeout > 0
+            ){
+                echo "id: $id\n";
+                echo "event: ping\n";
+                echo 'data: {"finish": "true", "counter": ' . $counter. ', "queue": ' . $queue . '}';
+                echo "\n\n";
+                flush();
+                break;
+            }
+        }
+    }
+}
