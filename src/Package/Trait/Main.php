@@ -69,11 +69,9 @@ trait Main {
         $node = new Node($object);
         $response_frontend = $node->record($class, $node->role_system(), $frontend_options);
         $response_backend = $node->record($class, $node->role_system(), $backend_options);
-        $options_application = (object) [
-            'frontend' => $response_frontend['node'],
-            'backend' => $response_backend['node'],
-        ];
-        $this->install_api($options_application);
+        $options->frontend = $response_frontend['node'];
+        $options->backend = $response_backend['node'];
+        $this->install_api($options);
 //        $this->install_application($options_application);
 
         $command = 'app install raxon/account -patch';
@@ -135,6 +133,7 @@ trait Main {
                     if(array_key_exists(1, $explode)){
                         $file->target = $explode[0];
                         $file->original_extension = File::extension($file->target);
+                        d($patch);
                         if(!File::exist($file->target) || $patch !== null){
                             $clone_options = new Data();
                             if(!property_exists($options->frontend,'subdomain') || empty($options->frontend->subdomain)){
