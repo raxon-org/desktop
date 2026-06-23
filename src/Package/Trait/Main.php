@@ -132,7 +132,6 @@ trait Main {
                 $file->extension = File::extension($file->target);
                 if($file->extension === 'rax'){
                     $explode = explode('.rax', $file->target, 2);
-                    d($explode);
                     if(array_key_exists(1, $explode)){
                         $file->target = $explode[0];
                         $file->original_extension = File::extension($file->target);
@@ -151,6 +150,7 @@ trait Main {
                             $data = new Data($object->data());
                             $clone = clone $object;
                             $clone->data(App::OPTIONS, $clone_options->data());
+                            d($file->original_extension);
                             switch($file->original_extension){
                                 case 'json':
                                     echo Cli::info('Processing file:') . $file->target . PHP_EOL;
