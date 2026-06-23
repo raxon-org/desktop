@@ -117,7 +117,6 @@ trait Main {
         }
         $options->read = $read;
         $this->install_list($options);
-        ddd($read);
     }
 
     /**
@@ -157,6 +156,13 @@ trait Main {
                                     if($patch !== null) {
                                         File::delete($file->target);
                                     }
+                                    $dir_target = Dir::name($file->target);
+                                    if(!File::exist($dir_target)){
+                                        Dir::create($dir_target, Dir::CHMOD);
+                                        File::permission($object, [
+                                            'target' => $dir_target,
+                                        ]);
+                                    }
                                     File::write($file->target, Core::object($content->data(), Core::JSON));
                                     File::permission($object, [
                                         'target' => $file->target,
@@ -183,6 +189,13 @@ trait Main {
                                     if($patch !== null) {
                                         File::delete($file->target);
                                     }
+                                    $dir_target = Dir::name($file->target);
+                                    if(!File::exist($dir_target)){
+                                        Dir::create($dir_target, Dir::CHMOD);
+                                        File::permission($object, [
+                                            'target' => $dir_target,
+                                        ]);
+                                    }
                                     File::write($file->target, $content);
                                     File::permission($object, [
                                         'target' => $file->target,
@@ -196,6 +209,13 @@ trait Main {
                         File::delete($file->target);
                     }
                     echo Cli::info('Processing file:') . $file->target . PHP_EOL;
+                    $dir_target = Dir::name($file->target);
+                    if(!File::exist($dir_target)){
+                        Dir::create($dir_target, Dir::CHMOD);
+                        File::permission($object, [
+                            'target' => $dir_target,
+                        ]);
+                    }
                     File::copy($file->url, $file->target);
                     File::permission($object, [
                         'target' => $file->target,
