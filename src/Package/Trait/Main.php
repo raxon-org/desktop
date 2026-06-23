@@ -98,7 +98,7 @@ trait Main {
             $object->config('ds')
         ;
         $dir_target = $object->config('project.dir.domain') .
-            $options->frontend->name .
+            $options->backend->name .
             $object->config('ds')
         ;
         d($dir_read);
