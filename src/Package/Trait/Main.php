@@ -128,9 +128,9 @@ trait Main {
         $read = $options->read ?? [];
         $patch = $options->patch ?? null;
         foreach($read as $nr => $file){
-            d($file);
             if($file->type === File::TYPE){
                 $file->extension = File::extension($file->target);
+                d($file->extension);
                 if($file->extension === 'rax'){
                     $explode = explode('.rax', $file->target, 2);
                     if(array_key_exists(1, $explode)){
