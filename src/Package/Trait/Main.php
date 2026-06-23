@@ -101,10 +101,6 @@ trait Main {
             $options->backend->name .
             $object->config('ds')
         ;
-        d($dir_read);
-        dd($dir_target);
-
-
         if(!File::exist($dir_target)){
             Dir::create($dir_target, Dir::CHMOD);
             File::permission($object, [
