@@ -116,6 +116,7 @@ trait Main {
             }
         }
         $options->read = $read;
+        echo 'Installing API: ' . count($read) . ' files' . PHP_EOL;
         $this->install_list($options);
     }
 
