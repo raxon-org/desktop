@@ -127,7 +127,6 @@ trait Main {
         $object = $this->object();
         $read = $options->read ?? [];
         $patch = $options->patch ?? null;
-        ddd($options);
         foreach($read as $nr => $file){
             if($file->type === File::TYPE){
                 $file->extension = File::extension($file->target);
@@ -138,12 +137,12 @@ trait Main {
                         $file->original_extension = File::extension($file->target);
                         if(!File::exist($file->target) || $patch !== null){
                             $clone_options = new Data();
-                            if(!property_exists($options->frontend,'subdomain')){
+                            if(!property_exists($options->frontend,'subdomain') || empty($options->frontend->subdomain)){
                                 $clone_options->set('frontend.host', $options->frontend->domain . '.' . $options->frontend->extension);
                             } else {
                                 $clone_options->set('frontend.host', $options->frontend->subdomain . '.' . $options->frontend->domain . '.' . $options->frontend->extension);
                             }
-                            if(!property_exists($options->backend,'subdomain')){
+                            if(!property_exists($options->backend,'subdomain')  || empty($options->backend->subdomain)){
                                 $clone_options->set('backend.host', $options->backend->domain . '.' . $options->backend->extension);
                             } else {
                                 $clone_options->set('backend.host', $options->backend->subdomain . '.' . $options->backend->domain . '.' . $options->backend->extension);
