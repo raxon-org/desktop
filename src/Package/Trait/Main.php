@@ -198,6 +198,7 @@ trait Main {
                                             'target' => $dir_target,
                                         ]);
                                     }
+                                    d($file->target);
                                     File::write($file->target, $content);
                                     File::permission($object, [
                                         'target' => $file->target,
