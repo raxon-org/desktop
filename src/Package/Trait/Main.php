@@ -72,6 +72,7 @@ trait Main {
         $options->frontend = $response_frontend['node'];
         $options->backend = $response_backend['node'];
         $this->install_api($options);
+        $this->install_application($options);
 //        $this->install_application($options_application);
 
         $command = 'app install raxon/account -patch';
