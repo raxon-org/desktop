@@ -130,9 +130,9 @@ trait Main {
         foreach($read as $nr => $file){
             if($file->type === File::TYPE){
                 $file->extension = File::extension($file->target);
-                d($file->extension);
                 if($file->extension === 'rax'){
                     $explode = explode('.rax', $file->target, 2);
+                    d($explode);
                     if(array_key_exists(1, $explode)){
                         $file->target = $explode[0];
                         $file->original_extension = File::extension($file->target);
