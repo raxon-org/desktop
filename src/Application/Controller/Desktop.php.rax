@@ -3,7 +3,7 @@
 namespace Domain\{{php.namespace.host($options.frontend.host)}}\Application\Desktop\Controller;
 
 use Raxon\App;
-use Raxon\Account\User;
+use Package\Raxon\Account\Module\User;
 use Raxon\Module\Controller;
 
 use Exception;
