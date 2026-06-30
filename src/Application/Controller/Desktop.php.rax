@@ -51,8 +51,8 @@ class Desktop extends Controller {
     public static function navigation(App $object){
         //add token
 
-        $user = User::get_by_authorization($object);
-        ddd($user);
+        //$user = User::get_by_authorization($object);
+        //ddd($user);
         $name = Desktop::name(__FUNCTION__, __CLASS__, '/');
         if(App::contentType($object) == App::CONTENT_TYPE_HTML){
             Core::redirect('/');
