@@ -36,7 +36,7 @@ class Navigation {
                 'route.name'
             ]);
             $menu = $parse->compile($menu, $data);
-            ddd($menu);
+            //ddd($menu);
             $parse->setLimit($limit);
             if($menu){
                 $menu = Sort::list($menu)->with(['name' => 'ASC']);
