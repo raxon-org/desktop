@@ -42,6 +42,7 @@ navigation.init = (id) => {
             url += '&limit=*';
             header('Authorization', 'Bearer ' + user.token());
             request(url, null, (route_backend_url, response) => {
+                console.log(route_backend_url);
                 console.log(response);
                 alert('test2');
                 url = file.data.get('route.frontend.node.application.desktop.navigation');
