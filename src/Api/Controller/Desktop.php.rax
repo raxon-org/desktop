@@ -2,21 +2,14 @@
 <?php
 namespace Domain\{{php.namespace.host($options.backend.host)}}\Controller;
 
-use Doctrine\ORM\Exception\ORMException;
-use Package\Raxon\Account\Module\Permission;
-
 use Raxon\App;
 use Raxon\Config;
-
+use Package\Raxon\Account\Module\Permission;
 use Raxon\Module\Core;
 use Raxon\Module\Controller;
-
 use Raxon\Module\Dir;
 use Raxon\Module\File;
-
 use Raxon\Module\Response;
-
-use Raxon\Doctrine\Module\Database;
 
 use Raxon\Node\Module\Node;
 
@@ -39,22 +32,6 @@ class Connection extends Controller {
     public static function sse(App $object){
         $user = User::get_by_authorization($object);
         dd($user);
-
-
-
-
-        $key = $object->request('user_key');
-        $uuid = $object->request('uuid');
-        $config = Database::config($object);
-        $connection = $object->config('doctrine.environment.system.' . $object->config('framework.environment'));
-        if($connection === null){
-            $connection = $object->config('doctrine.environment.system.*');
-        }
-        $entityManager = Database::entity_manager($object, $config, $connection);
-        $repository = $entityManager->getRepository('\\Entity\\User');
-        $user = $repository->findOneBy([
-            'key' => $key
-        ]);
         if(!$user){
             throw new Exception('Access denied...');
         }
@@ -66,7 +43,6 @@ class Connection extends Controller {
         header("Connection: keep-alive");
         header("Keep-Alive: timeout=30, max=7200");
         header("Transfer-encoding: chunked");
-
 //        @ini_set('zlib.output_compression', 0);
 //        @ini_set('implicit_flush', 1);
         Core::interactive();
