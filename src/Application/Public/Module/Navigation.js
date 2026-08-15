@@ -40,13 +40,15 @@ navigation.init = (id) => {
             url += '?filter[user][strictly-exact]=' + user.get('uuid');
             url += '&sort[user]=ASC&sort[name]=ASC';
             url += '&limit=*';
-            header('Authorization', 'Bearer ' + user.token());
+            const token = user.token();
+            header('Authorization', 'Bearer ' + token);
             request(url, null, (route_backend_url, response) => {
-                console.log(route_backend_url);
-                console.log(response);
-                alert('test2');
+                alert(route_backend_url);
+                console.log(response.data);
                 url = file.data.get('route.frontend.node.application.desktop.navigation');
+                alert(url);
                 request(url, response, (route_frontend_url, response) => {
+                    console.log(response.data);
                     navigation.taskbar_init(id); //taskbar_init
                 });
             });
