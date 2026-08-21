@@ -11,29 +11,36 @@ navigation.init = (id) => {
     setTimeout(() => {
         if(is.empty(active_user)){
             url = file.data.get('route.backend.user.current');
-            //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
-            header('Authorization', 'Bearer ' + user.token());
-            request(url, null, (url, response) => {
-                if (!is.empty(response.node)) {
-                    user.set(response.node);
-                    header('Authorization', 'Bearer ' + user.token());
-                    url = file.data.get('route.backend.node.application.desktop.navigation');
-                    url += '?filter[user][strictly-exact]=' + user.get('uuid');
-                    url += '&sort[user]=ASC&sort[name]=ASC';
-                    url += '&limit=*';
-                    request(url, null, (route_backend_url, response) => {
-                        url = file.data.get('route.frontend.node.application.desktop.navigation');
-                        request(url, response, (route_frontend_url, response) => {
-                            navigation.taskbar_init(id); //taskbar_init
+            const token = user.token();
+            if(token){
+                header('Authorization', 'Bearer ' + user.token());
+                request(url, null, (url, response) => {
+                    if (!is.empty(response.node)) {
+                        user.set(response.node);
+                        header('Authorization', 'Bearer ' + user.token());
+                        url = file.data.get('route.backend.node.application.desktop.navigation');
+                        url += '?filter[user][strictly-exact]=' + user.get('uuid');
+                        url += '&sort[user]=ASC&sort[name]=ASC';
+                        url += '&limit=*';
+                        request(url, null, (route_backend_url, response) => {
+                            url = file.data.get('route.frontend.node.application.desktop.navigation');
+                            request(url, response, (route_frontend_url, response) => {
+                                navigation.taskbar_init(id); //taskbar_init
+                            });
                         });
-                    });
-                } else {
-                    url = file.data.get('route.frontend.user.login');
-                    priya.debug(url);
-                    //redirect(url);
-                    console.warn('load authentication mechanism');
-                }
-            });
+                    } else {
+                        url = file.data.get('route.frontend.user.login');
+                        redirect(url);
+                        console.warn('load authentication mechanism');
+                    }
+                });
+            } else {
+                url = file.data.get('route.frontend.user.login');
+                redirect(url);
+                console.warn('load authentication mechanism');
+            }
+            //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
+
         } else {
             url = file.data.get('route.backend.node.application.desktop.navigation');
             url += '?filter[user][strictly-exact]=' + user.get('uuid');
