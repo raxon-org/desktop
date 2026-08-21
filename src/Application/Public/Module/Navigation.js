@@ -14,8 +14,6 @@ navigation.init = (id) => {
             //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
             header('Authorization', 'Bearer ' + user.token());
             request(url, null, (url, response) => {
-                console.log(response);
-                alert('test');
                 if (!is.empty(response.node)) {
                     user.set(response.node);
                     header('Authorization', 'Bearer ' + user.token());
@@ -43,12 +41,9 @@ navigation.init = (id) => {
             const token = user.token();
             header('Authorization', 'Bearer ' + token);
             request(url, null, (route_backend_url, response) => {
-                alert(route_backend_url);
-                console.log(response.data);
                 url = file.data.get('route.frontend.node.application.desktop.navigation');
                 alert(url);
                 request(url, response, (route_frontend_url, response) => {
-                    console.log(response.data);
                     navigation.taskbar_init(id); //taskbar_init
                 });
             });

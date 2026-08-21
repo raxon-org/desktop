@@ -85,7 +85,6 @@ task.active = (options, closure) => {
     let config = false;
     if(options?.config?.url){
         let url = options?.config?.url;
-        priya.debug(url);
         /*
         url += '?filter[user][strictly-exact]=' + user.get('uuid');
         url += '&sort[user]=ASC&sort[name]=ASC';
