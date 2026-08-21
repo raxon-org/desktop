@@ -29,10 +29,13 @@ navigation.init = (id) => {
                             });
                         });
                     } else {
-                        priya.debug(url);
-                        url = file.data.get('route.frontend.user.login');
-                        //redirect(url);
-                        console.warn('load authentication mechanism');
+                        !is.empty(response.class) &&
+                        in_array(response.class, [
+                            'Raxon\\Exception\\AuthorizationException',
+                        ]){
+                            url = file.data.get('route.frontend.user.login');
+                            redirect(url);
+                        }
                     }
                 });
             } else {
