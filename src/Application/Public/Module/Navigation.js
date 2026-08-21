@@ -42,7 +42,6 @@ navigation.init = (id) => {
             header('Authorization', 'Bearer ' + token);
             request(url, null, (route_backend_url, response) => {
                 url = file.data.get('route.frontend.node.application.desktop.navigation');
-                alert(url);
                 request(url, response, (route_frontend_url, response) => {
                     navigation.taskbar_init(id); //taskbar_init
                 });
