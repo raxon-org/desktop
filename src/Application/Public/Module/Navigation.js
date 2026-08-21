@@ -29,7 +29,8 @@ navigation.init = (id) => {
                     });
                 } else {
                     url = file.data.get('route.frontend.user.login');
-                    redirect(url);
+                    priya.debug(url);
+                    //redirect(url);
                     console.warn('load authentication mechanism');
                 }
             });
