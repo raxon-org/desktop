@@ -19,9 +19,8 @@ navigation.init = (id) => {
                         response?.class === 'Raxon\\Exception\\AuthorizationException' &&
                         response?.message === 'Expired token...'
                     ) {
-                        priya.debug(response?.message);
                         url = file.data.get('route.frontend.user.login');
-                        console.warn('load authentication mechanism');
+                        console.log('load authentication mechanism');
                         redirect(url);
                     }
                     else if(
