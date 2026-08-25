@@ -13,9 +13,20 @@ navigation.init = (id) => {
             url = file.data.get('route.backend.user.current');
             const token = user.token();
             if(token){
-                header('Authorization', 'Bearer ' + user.token());
+                header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
-                    if (!is.empty(response.node)) {
+                    priya.debug(response);
+                    if(
+                        !is.empty(response.class) &&
+                        in_array(
+                            response.class, [
+                                'Raxon\\Exception\\AuthorizationException',
+                            ])
+                    ){
+                        url = file.data.get('route.frontend.user.login');
+                        redirect(url);
+                    }
+                    else if (!is.empty(response.node)) {
                         user.set(response.node);
                         header('Authorization', 'Bearer ' + user.token());
                         url = file.data.get('route.backend.node.application.desktop.navigation');
@@ -28,17 +39,6 @@ navigation.init = (id) => {
                                 navigation.taskbar_init(id); //taskbar_init
                             });
                         });
-                    } else {
-                        if(
-                            !is.empty(response.class) &&
-                            in_array(
-                            response.class, [
-                                'Raxon\\Exception\\AuthorizationException',
-                            ])
-                        ){
-                            url = file.data.get('route.frontend.user.login');
-                            redirect(url);
-                        }
                     }
                 });
             } else {
