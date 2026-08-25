@@ -20,7 +20,7 @@ navigation.init = (id) => {
                         response?.message === 'Expired token...'
                     ) {
                         url = file.data.get('route.frontend.user.login');
-                        console.log('load authentication mechanism');
+                        console.log('load authentication mechanism: ' + url);
                         redirect(url);
                     }
                     else if(
