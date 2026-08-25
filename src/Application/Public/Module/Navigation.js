@@ -15,11 +15,15 @@ navigation.init = (id) => {
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
-                    priya.debug('Response: ' + url);
-                    priya.debug('Url:' + url);
-                    priya.debug(response);
                     if(
-                        !is.empty(response.class) &&
+                        response?.class === 'Raxon\\Exception\\AuthorizationException' &&
+                        response?.message === 'Expired token...'
+                    ) {
+                        url = file.data.get('route.frontend.user.login');
+                        redirect(url);
+                    }
+                    else if(
+                        response?.class &&
                         in_array(
                             response.class, [
                                 'Raxon\\Exception\\AuthorizationException',
