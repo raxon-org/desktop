@@ -15,6 +15,7 @@ navigation.init = (id) => {
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
+                    priya.debug('Response: ' + url);
                     priya.debug(response);
                     if(
                         !is.empty(response.class) &&
