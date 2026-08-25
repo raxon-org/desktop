@@ -20,6 +20,7 @@ navigation.init = (id) => {
                         response?.message === 'Expired token...'
                     ) {
                         url = file.data.get('route.frontend.user.login');
+                        console.warn('load authentication mechanism');
                         redirect(url);
                     }
                     else if(
@@ -30,6 +31,7 @@ navigation.init = (id) => {
                             ])
                     ){
                         url = file.data.get('route.frontend.user.login');
+                        console.warn('load authentication mechanism');
                         redirect(url);
                     }
                     else if (!is.empty(response.node)) {
@@ -49,8 +51,9 @@ navigation.init = (id) => {
                 });
             } else {
                 url = file.data.get('route.frontend.user.login');
-                redirect(url);
                 console.warn('load authentication mechanism');
+                redirect(url);
+
             }
             //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
 
