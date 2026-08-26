@@ -39,7 +39,7 @@ class Navigation
                             [
                                 'attribute' => 'name',
                                 'operator' => '===',
-                                'value' => self::NAME,
+                                'value' => $options->name,
                             ],
                             'and',
                             [
@@ -53,15 +53,15 @@ class Navigation
                 );
                 if ($response === null) {
                     $record = [
-                        "name" => self::NAME,
+                        "name" => $options->name,
                         "user" => $user->uuid ?? null,
                         "route" => (object)[
-                            'name' => self::ROUTE_NAME,
+                            'name' => $options->route->name,
                             'get' => '{{route.name($this.name)}}'
                         ],
                         "url" => '{{route.get($this.route.get)}}',
-                        "svg" => '/Application/' . self::NAME . '/Icon/Icon.png',
-                        "icon" => '/Application/' . self::NAME . '/Icon/Icon.png'
+                        "svg" => '/Application/' . $options->name . '/Icon/Icon.png',
+                        "icon" => '/Application/' . $options->name . '/Icon/Icon.png'
                     ];
                     $response = $node->create($class, $role, $record);
                 }
