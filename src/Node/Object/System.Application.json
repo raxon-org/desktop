@@ -1,0 +1,71 @@
+{
+  "Node": {
+    "#class": "System.Application",
+    "type": "object",
+    "property": [
+      {
+        "name": "uuid",
+        "type": "uuid"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "display",
+        "type": "object",
+        "property": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "url",
+        "type": "string"
+      },
+      {
+        "name": "icon_url",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "user",
+        "type": "array"
+      },
+      {
+        "name": "extension",
+        "type": "array"
+      },
+      {
+        "name": "#class",
+        "type": "string"
+      },
+      {
+        "name": "is",
+        "type": "object",
+        "property": [
+          {
+            "name": "created",
+            "type": "string"
+          },
+          {
+            "name": "updated",
+            "type": "string"
+          },
+          {
+            "name": "deleted",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "is.unique": [
+    "name"
+  ]
+}

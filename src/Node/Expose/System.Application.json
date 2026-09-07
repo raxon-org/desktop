@@ -1,0 +1,864 @@
+{
+    "System": {
+        "Application": {
+          "count": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "list": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "page": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "read": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "record": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "create": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "create_many": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "put": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "put_many": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "patch": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "patch_many": {
+            "output": [
+              {
+                "role": "ROLE_SYSTEM",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              },
+              {
+                "role": "ROLE_ADMIN",
+                "property": [
+                  "uuid",
+                  "name",
+                  "url",
+                  "icon_url",
+                  "user",
+                  "extension",
+                  "display",
+                  "description",
+                  "is",
+                  "#class"
+                ],
+                "object": {
+                  "user": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "extension": {
+                    "multiple": true,
+                    "output": [
+                      "uuid"
+                    ]
+                  },
+                  "is": {
+                    "multiple": false,
+                    "output": [
+                      "created",
+                      "modified",
+                      "deleted"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+    }
+}

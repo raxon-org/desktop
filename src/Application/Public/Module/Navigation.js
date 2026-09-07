@@ -31,7 +31,7 @@ navigation.init = (id) => {
                             ])
                     ){
                         url = file.data.get('route.frontend.user.login');
-                        console.warn('load authentication mechanism');
+                        console.log('load authentication mechanism');
                         redirect(url);
                     }
                     else if (!is.empty(response.node)) {
@@ -51,7 +51,7 @@ navigation.init = (id) => {
                 });
             } else {
                 url = file.data.get('route.frontend.user.login');
-                console.warn('load authentication mechanism');
+                console.log('load authentication mechanism');
                 redirect(url);
 
             }

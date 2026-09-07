@@ -1,0 +1,108 @@
+{
+    "System": {
+      "Application": {
+        "create": {
+          "validate": {
+            "uuid": [
+              {
+                "is.uuid": true
+              }
+            ],
+            "name": [
+              {
+                "is.string": true
+              }
+            ],
+            "description": [
+              {
+                "is.string": true
+              }
+            ],
+            "display.name": [
+              {
+                "is.string": true
+              }
+            ],
+            "user": [
+              {
+                "is.array": true
+              }
+            ],
+            "?extension": [
+              {
+                "is.array": true
+              }
+            ]
+          }
+        },
+        "put": {
+          "validate": {
+            "uuid": [
+              {
+                "is.uuid": true
+              }
+            ],
+            "?name": [
+              {
+                "is.string": true
+              }
+            ],
+            "?description": [
+              {
+                "is.string": true
+              }
+            ],
+            "?display.name": [
+              {
+                "is.string": true
+              }
+            ],
+            "?user": [
+              {
+                "is.array": true
+              }
+            ],
+            "?extension": [
+              {
+                "is.array": true
+              }
+            ]
+          }
+        },
+        "patch": {
+          "validate": {
+            "uuid": [
+              {
+                "is.uuid": true
+              }
+            ],
+            "?name": [
+              {
+                "is.string": true
+              }
+            ],
+            "?description": [
+              {
+                "is.string": true
+              }
+            ],
+            "?display.name": [
+              {
+                "is.string": true
+              }
+            ],
+            "?user": [
+              {
+                "is.array": true
+              }
+            ],
+            "?extension": [
+              {
+                "is.array": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
