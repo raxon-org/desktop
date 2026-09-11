@@ -1,0 +1,9 @@
+{
+  "where": [
+    {
+      "value": "mp3",
+      "operator": "in",
+      "attribute": "extension"
+    }
+  ]
+}
