@@ -26,6 +26,30 @@
     {
       "name": "Application:Desktop:Navigation:list",
       "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Application:record",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Application:create",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Application:patch",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Application:put",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Application:delete",
+      "#class": "Account.Permission"
+    },
+    {
+      "name": "System:Application:list",
+      "#class": "Account.Permission"
     }
   ]
 }
