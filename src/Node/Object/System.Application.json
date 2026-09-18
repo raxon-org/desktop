@@ -22,12 +22,36 @@
         ]
       },
       {
-        "name": "url",
+        "name": "package",
         "type": "string"
       },
       {
-        "name": "icon_url",
-        "type": "string"
+        "name": "url",
+        "type": "object",
+        "property": [
+          {
+            "name": "node",
+            "type": "object",
+            "property": [
+              {
+                "name": "extension",
+                "type": "string"
+              },
+              {
+                "name": "content_type",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "extension",
+            "type": "string"
+          },
+          {
+            "name": "content_type",
+            "type": "string"
+          }
+        ]
       },
       {
         "name": "description",
@@ -44,6 +68,20 @@
       {
         "name": "#class",
         "type": "string"
+      },
+      {
+        "name": "directory",
+        "type": "object",
+        "property": [
+          {
+            "name": "application",
+            "type": "string"
+          },
+          {
+            "name": "icon",
+            "type": "string"
+          }
+        ]
       },
       {
         "name": "is",
