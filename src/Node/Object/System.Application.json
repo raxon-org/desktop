@@ -74,7 +74,7 @@
         "type": "string"
       },
       {
-        "name": "directory",
+        "name": "config",
         "type": "object",
         "property": [
           {
