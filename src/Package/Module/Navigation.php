@@ -12,7 +12,7 @@ class Navigation
      * @throws ObjectException
      * @throws Exception
      */
-    public static function create(App $object, array $list=[], object|null $options=null, object $application): void
+    public static function create(App $object, array $list, object $options, object $application): void
     {
         if(!property_exists($options, 'name')){
             throw new Exception('$options name is required.');
