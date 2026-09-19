@@ -3,5 +3,5 @@
 {{Package.Raxon.Desktop:Import:role.system()}}
 {{$flags = flags()}}
 {{$options = options()}}
-{{Package.Raxon.Desktop:Main:install($flags, $options)}}
+{{Package.Raxon.Desktop:Setup:install($flags, $options)}}
 {{/if}}

@@ -17,7 +17,7 @@ use Raxon\Node\Module\Node;
 
 use Exception;
 
-trait Main {
+trait Setup {
     const NAME = 'Desktop';
     /**
      * @throws DirectoryCreateException
