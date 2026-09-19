@@ -43,6 +43,11 @@
                 "is.object": true
               }
             ],
+            "?route": [
+              {
+                "is.object": true
+              }
+            ],
             "?icon": [
               {
                 "is.string": true
@@ -92,6 +97,11 @@
                 "is.object": true
               }
             ],
+            "?route": [
+              {
+                "is.object": true
+              }
+            ],
             "?icon": [
               {
                 "is.string": true
@@ -137,6 +147,11 @@
               }
             ],
             "?directory": [
+              {
+                "is.object": true
+              }
+            ],
+            "?route": [
               {
                 "is.object": true
               }

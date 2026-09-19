@@ -78,6 +78,20 @@
         "type": "string"
       },
       {
+        "name": "route",
+        "type": "object",
+        "property": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "get",
+            "type": "string"
+          }
+        ]
+      },
+      {
         "name": "directory",
         "type": "object",
         "property": [
