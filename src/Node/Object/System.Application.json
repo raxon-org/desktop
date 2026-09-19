@@ -74,6 +74,10 @@
         "type": "string"
       },
       {
+        "name": "icon",
+        "type": "string"
+      },
+      {
         "name": "directory",
         "type": "object",
         "property": [

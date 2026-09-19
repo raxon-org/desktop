@@ -8,12 +8,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -23,6 +27,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -45,12 +72,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -60,6 +91,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -86,12 +140,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -101,6 +159,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -123,12 +204,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -138,6 +223,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -164,12 +272,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -179,6 +291,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -201,12 +336,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -216,6 +355,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -242,12 +404,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -257,6 +423,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -279,12 +468,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -294,6 +487,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -320,12 +536,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -335,6 +555,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -357,12 +600,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -372,6 +619,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -398,12 +668,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -413,6 +687,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -435,12 +732,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -450,6 +751,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -476,12 +800,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -491,6 +819,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -513,12 +864,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -528,6 +883,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -554,12 +932,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -569,6 +951,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -591,12 +996,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -606,6 +1015,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -632,12 +1064,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -647,6 +1083,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -669,12 +1128,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -684,6 +1147,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -710,12 +1196,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -725,6 +1215,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -747,12 +1260,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -762,6 +1279,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -788,12 +1328,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -803,6 +1347,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
@@ -825,12 +1392,16 @@
                 "property": [
                   "uuid",
                   "name",
-                  "url",
-                  "icon_url",
+                  "display",
+                  "package",
+                  "source",
+                  "description",
                   "user",
                   "extension",
-                  "display",
-                  "description",
+                  "method",
+                  "target",
+                  "icon",
+                  "directory",
                   "is",
                   "#class"
                 ],
@@ -840,6 +1411,29 @@
                     "output": [
                       "uuid"
                     ]
+                  },
+                  "directory": {
+                    "multiple": false,
+                    "output": [
+                      "application"
+                    ]
+                  },
+                  "source": {
+                    "multiple": false,
+                    "output": [
+                      "node",
+                      "extension",
+                      "content_type"
+                    ],
+                    "object": {
+                      "node": {
+                        "multiple": false,
+                        "output": [
+                          "extension",
+                          "content_type"
+                        ]
+                      }
+                    }
                   },
                   "extension": {
                     "multiple": true,
