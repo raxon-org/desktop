@@ -17,10 +17,10 @@ class Navigation
         if(!property_exists($application, 'name')){
             throw new Exception('$application name is required.');
         }
-        if(property_exists($options, 'route') && property_exists($options->route, 'name')){
+        if(property_exists($application, 'route') && property_exists($application->route, 'name')){
             //nothing
         } else {
-            throw new Exception('$options route->name is required.');
+            throw new Exception('$application route->name is required.');
 
         }
         foreach($list as $nr => $user){
@@ -52,18 +52,15 @@ class Navigation
                     ]
                 );
                 if ($response === null) {
-                    d($application);
-                    ddd($options);
                     $record = [
-                        "name" => $options->name,
+                        "name" => $application->name,
                         "user" => $user->uuid ?? null,
                         "route" => (object)[
-                            'name' => $options->route->name,
+                            'name' => $application->route->name,
                             'get' => '{{route.name($this.name)}}'
                         ],
                         "url" => '{{route.get($this.route.get)}}',
-                        "svg" => '/Application/' . $options->name . '/Icon/Icon.png',
-                        "icon" => '/Application/' . $options->name . '/Icon/Icon.png'
+                        "icon" => '/Application/' . $application->name . '/Icon/Icon.png'
                     ];
                     $response = $node->create($class, $role, $record);
                 }
