@@ -14,8 +14,8 @@ class Navigation
      */
     public static function create(App $object, array $list, object $options, object $application): void
     {
-        if(!property_exists($options, 'name')){
-            throw new Exception('$options name is required.');
+        if(!property_exists($application, 'name')){
+            throw new Exception('$application name is required.');
         }
         if(property_exists($options, 'route') && property_exists($options->route, 'name')){
             //nothing
@@ -39,7 +39,7 @@ class Navigation
                             [
                                 'attribute' => 'name',
                                 'operator' => '===',
-                                'value' => $options->name,
+                                'value' => $application->name,
                             ],
                             'and',
                             [
