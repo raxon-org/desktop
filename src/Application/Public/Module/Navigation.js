@@ -15,10 +15,7 @@ navigation.init = (id) => {
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
-                    if(
-                        response?.class === 'Raxon\\Exception\\AuthorizationException' &&
-                        response?.message === 'Expired token...'
-                    ) {
+                    if(response?.class === 'Package\\Raxon\\Account\\Exception\\TokenExpiredException'){
                         url = file.data.get('route.frontend.user.login');
                         console.log('load authentication mechanism: ' + url);
                         redirect(url);
