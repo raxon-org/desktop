@@ -17,6 +17,7 @@ navigation.init = (id) => {
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
                     if(response?.class === 'Package\\Raxon\\Account\\Exception\\TokenExpiredException'){
+                        console.log('################ EXPIRED');
                         user.authorization((url, data) => {
                             console.log('################ EXECUTE');
                             if (
