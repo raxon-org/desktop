@@ -12,13 +12,31 @@ navigation.init = (id) => {
         if(is.empty(active_user)){
             url = file.data.get('route.backend.user.current');
             const token = user.token();
+            const refresh_token = user.refreshToken();
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
                     if(response?.class === 'Package\\Raxon\\Account\\Exception\\TokenExpiredException'){
-                        url = file.data.get('route.frontend.user.login');
-                        console.log('load authentication mechanism: ' + url);
-                        redirect(url);
+                        user.authorization((url, data) => {
+                            if (
+                                data?.class &&
+                                in_array(data?.class, [
+                                    'Package\\Raxon\\Account\\Exception\\TokenExpiredException',
+                                    'Package\\Raxon\\Account\\Exception\\AuthorizationException',
+                                ], true) &&
+                                refresh_token
+                            ) {
+                                redirect(user.loginUrl());
+                            } else {
+                                user.token(data.node?.token);
+                                user.refreshToken(data.node?.refresh_token);
+                                const node = data?.node;
+                                delete node?.token;
+                                delete node?.refresh_token;
+                                user.data(node);
+                                navigation.init(id);
+                            }
+                        });
                     }
                     else if(
                         response?.class &&
@@ -32,7 +50,10 @@ navigation.init = (id) => {
                         redirect(url);
                     }
                     else if (!is.empty(response.node)) {
-                        user.set(response.node);
+                        const node = response.node;
+                        delete node?.token;
+                        delete node?.refresh_token;
+                        user.set(node);
                         header('Authorization', 'Bearer ' + user.token());
                         url = file.data.get('route.backend.node.application.desktop.navigation');
                         url += '?filter[user][strictly-exact]=' + user.get('uuid');
