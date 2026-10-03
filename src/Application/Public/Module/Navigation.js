@@ -18,6 +18,7 @@ navigation.init = (id) => {
                 request(url, null, (url, response) => {
                     if(response?.class === 'Package\\Raxon\\Account\\Exception\\TokenExpiredException'){
                         user.authorization((url, data) => {
+                            console.log('################ EXECUTE');
                             if (
                                 data?.class &&
                                 in_array(data?.class, [
