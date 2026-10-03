@@ -32,10 +32,12 @@ navigation.init = (id) => {
                             } else {
                                 user.token(data.node?.token);
                                 user.refreshToken(data.node?.refresh_token);
+                                /*
                                 const node = data?.node;
                                 delete node?.token;
                                 delete node?.refresh_token;
                                 user.data(node);
+                                 */
                                 navigation.init(id);
                             }
                         });
