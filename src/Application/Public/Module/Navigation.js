@@ -18,6 +18,8 @@ navigation.init = (id) => {
             url_login = user.url.login();
             const token = user.token();
             const refresh_token = user.refreshToken();
+            console.log('############# token');
+            console.log(token);
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
@@ -33,7 +35,7 @@ navigation.init = (id) => {
                                 ], true) &&
                                 refresh_token
                             ) {
-                                redirect(user.loginUrl());
+                                redirect(user.url.login());
                             } else {
                                 user.token(data.node?.token);
                                 user.refreshToken(data.node?.refresh_token);
@@ -54,7 +56,7 @@ navigation.init = (id) => {
                                 'Raxon\\Exception\\AuthorizationException',
                             ])
                     ){
-                        url = file.data.get('route.frontend.user.login');
+                        url = user.url.login();
                         console.log('load authentication mechanism');
                         redirect(url);
                     }
@@ -77,7 +79,7 @@ navigation.init = (id) => {
                     }
                 });
             } else {
-                url = file.data.get('route.frontend.user.login');
+                url = user.url.current();
                 console.log('load authentication mechanism');
                 redirect(url);
 
