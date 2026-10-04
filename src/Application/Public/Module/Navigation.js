@@ -21,16 +21,26 @@ navigation.init = (id) => {
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
-                    if(response?.class === 'Package\\Raxon\\Account\\Exception\\TokenExpiredException'){
-                        console.log('################ EXPIRED');
+                    if(
+                        response?.class &&
+                        in_array(
+                            response?.class, [
+                                'Package\\Raxon\\Account\\Exception\\TokenExpiredException',
+                                'Package\\Raxon\\Account\\Exception\\AuthorizationException',
+                            ],
+                            true
+                        )
+                    ){
                         user.authorization((url, data) => {
-                            console.log('################ EXECUTE');
                             if (
                                 data?.class &&
-                                in_array(data?.class, [
-                                    'Package\\Raxon\\Account\\Exception\\TokenExpiredException',
-                                    'Package\\Raxon\\Account\\Exception\\AuthorizationException',
-                                ], true) &&
+                                in_array(
+                                    data?.class, [
+                                        'Package\\Raxon\\Account\\Exception\\TokenExpiredException',
+                                        'Package\\Raxon\\Account\\Exception\\AuthorizationException',
+                                    ],
+                                    true
+                                ) &&
                                 refresh_token
                             ) {
                                 redirect(user.url.login());
@@ -42,17 +52,11 @@ navigation.init = (id) => {
                                 user.token(data.node?.token);
                                 user.refreshToken(data.node?.refresh_token);
                                 const original = user.data();
-                                const node = data?.node;
+                                const node = data?.node || {};
                                 delete node?.token;
                                 delete node?.refresh_token;
                                 const merge = { ...original, ...node };
                                 user.data(merge);
-                                /*
-                                const node = data?.node;
-                                delete node?.token;
-                                delete node?.refresh_token;
-                                user.data(node);
-                                 */
                                 navigation.init(id);
                             } else {
                                 if(url_login){
@@ -73,10 +77,12 @@ navigation.init = (id) => {
                         }
                     }
                     else if (!is.empty(response.node)) {
+                        const original = user.data();
                         const node = response.node;
                         delete node?.token;
                         delete node?.refresh_token;
-                        user.set(node);
+                        const merge = { ...original, ...node };
+                        user.set(merge);
                         header('Authorization', 'Bearer ' + user.token());
                         url = file.data.get('route.backend.node.application.desktop.navigation');
                         url += '?filter[user][strictly-exact]=' + user.get('uuid');
