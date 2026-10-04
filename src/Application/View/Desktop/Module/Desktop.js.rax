@@ -19,7 +19,7 @@ require(
             "backend": {
                 "url": {
                     "current": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
-                    "refresh": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Refresh/",
+                    "refresh": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Refresh/Token/",
                 }
             },
             "frontend": {
