@@ -34,11 +34,19 @@ navigation.init = (id) => {
                                 refresh_token
                             ) {
                                 redirect(user.url.login());
-                            } else {
-                                console.log('################ DATA');
-                                console.log(data);
+                            }
+                            else if (
+                                data.node?.token &&
+                                data.node?.refresh_token
+                            ){
                                 user.token(data.node?.token);
                                 user.refreshToken(data.node?.refresh_token);
+                                const original = user.data();
+                                const node = data?.node;
+                                delete node?.token;
+                                delete node?.refresh_token;
+                                const merge = { ...original, ...node };
+                                user.data(merge);
                                 /*
                                 const node = data?.node;
                                 delete node?.token;
@@ -46,6 +54,10 @@ navigation.init = (id) => {
                                 user.data(node);
                                  */
                                 navigation.init(id);
+                            } else {
+                                if(url_login){
+                                    redirect(url_login);
+                                }
                             }
                         });
                     }
@@ -56,9 +68,9 @@ navigation.init = (id) => {
                                 'Raxon\\Exception\\AuthorizationException',
                             ])
                     ){
-                        url = user.url.login();
-                        console.log('load authentication mechanism');
-                        redirect(url);
+                        if(url_login){
+                            redirect(url_login);
+                        }
                     }
                     else if (!is.empty(response.node)) {
                         const node = response.node;
@@ -79,10 +91,9 @@ navigation.init = (id) => {
                     }
                 });
             } else {
-                url = user.url.current();
-                console.log('load authentication mechanism');
-                redirect(url);
-
+                if(url_login){
+                    redirect(url_login);
+                }
             }
             //url = "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/";
 
