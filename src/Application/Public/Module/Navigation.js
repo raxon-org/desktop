@@ -19,6 +19,7 @@ navigation.init = (id) => {
             const token = user.token();
             const refresh_token = user.refreshToken();
             console.log('############# url');
+            console.log(user.data());
             console.log(url);
             console.log(url_refresh);
             console.log(url_login);
