@@ -5,7 +5,7 @@ import { file } from "/Application/Desktop/Module/File.js"
 let navigation = {};
 
 navigation.init = (id) => {
-    let active_user = user.get();
+    let active_user = user.getActive();
     let url;
     let url_refresh;
     let url_login;
