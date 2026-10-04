@@ -16,11 +16,9 @@ require(
     ],
     function(){
         user.init({
-            "url": {
-                "login": "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}User/Login/",
-                "refresh": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Refresh/",
-                "current": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/"
-            }
+            "backend.url.current": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
+            "backend.url.refresh": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Refresh/",
+            "frontend.url.login": "{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}User/Login/",
         });
         //need backend.user.current
         file.data.set({
