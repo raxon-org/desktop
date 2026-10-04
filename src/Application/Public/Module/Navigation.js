@@ -7,15 +7,15 @@ let navigation = {};
 navigation.init = (id) => {
     let active_user = user.get();
     let url;
-    let url_refresh_token;
+    let url_refresh;
     let url_login;
 
     setTimeout(() => {
         if(is.empty(active_user)){
             //remove user.refreshUrl and user.loginUrl
-            url = file.data.get('route.backend.user.url.current');
-            url_refresh_token = file.data.get('route.backend.user.refresh.token');
-            url_login = file.data.get('route.backend.user.login');
+            url = user.url.current();
+            url_refresh = user.url.refresh();
+            url_login = user.url.login();
             const token = user.token();
             const refresh_token = user.refreshToken();
             if(token){

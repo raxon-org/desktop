@@ -26,9 +26,9 @@ require(
         file.data.set({
             "controller" : "{{raw|>object(config('controller'), 'json-line')}}",
             "section.id" : "{{$id}}",
-            "backend.user.url.current" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
-            "backend.user.url.refresh" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Refresh/",
-            "frontend.user.url.login":"{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}User/Login/",
+            //"backend.user.url.current" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
+            //"backend.user.url.refresh" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Refresh/",
+            //"frontend.user.url.login":"{{server.url(\"{{/literal}}{{$frontend.host}}{{literal}}\")}}User/Login/",
             "route.backend.user.current" : "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}User/Current/",
             "route.backend.node.application.desktop.navigation": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Node/Application.Desktop.Navigation/",
             "route.backend.sse": "{{server.url(\"{{/literal}}{{$backend.host}}{{literal}}\")}}Desktop/Sse/",
