@@ -20,6 +20,7 @@ navigation.init = (id) => {
             const refresh_token = user.refreshToken();
             console.log('############# url');
             console.log(url);
+            console.log('############# token');
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
