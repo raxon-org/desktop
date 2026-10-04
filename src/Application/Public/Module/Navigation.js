@@ -18,12 +18,6 @@ navigation.init = (id) => {
             url_login = user.url.login();
             const token = user.token();
             const refresh_token = user.refreshToken();
-            console.log('############# url');
-            console.log(user.data());
-            console.log(url);
-            console.log(url_refresh);
-            console.log(url_login);
-            console.log('############# token');
             if(token){
                 header('Authorization', 'Bearer ' + token);
                 request(url, null, (url, response) => {
@@ -41,6 +35,8 @@ navigation.init = (id) => {
                             ) {
                                 redirect(user.url.login());
                             } else {
+                                console.log('################ DATA');
+                                console.log(data);
                                 user.token(data.node?.token);
                                 user.refreshToken(data.node?.refresh_token);
                                 /*
