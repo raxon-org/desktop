@@ -1,0 +1,27 @@
+{
+  "System":{
+    "Application":[
+      {
+        "name": "Desktop",
+        "display": {
+          "name": "Desktop"
+        },
+        "package": "raxon/{{$this.name|>string.lowercase}}",
+        "route": {
+          "name": "application-desktop-navigation"
+        },
+        "frontend": "{{Package.Raxon.Desktop:Setup:install.frontend.get(options())}}",
+        "backend": "{{Package.Raxon.Desktop:Setup:install.backend.get(options())}}",
+        "directory": {
+          "application": "Application/{{$this.#parentNode.#parentNode.name}}/"
+        },
+        "source": {},
+        "method": null,
+        "target": null,
+        "description": "Desktop environment",
+        "icon": "Application/{{$this.name}}/Icon/Icon.png",
+        "user": "{{Package.Raxon.Desktop:Setup:user.list(flags(), options(), $this)}}"
+      }
+    ]
+  }
+}

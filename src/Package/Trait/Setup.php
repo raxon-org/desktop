@@ -1,11 +1,10 @@
 <?php
 namespace Package\Raxon\Desktop\Trait;
 
+use Package\Raxon\Basic\Trait\Install;
 use Raxon\App;
 use Raxon\Config;
-
 use Raxon\Exception\DirectoryCreateException;
-
 use Raxon\Module\Cli;
 use Raxon\Module\Data;
 use Raxon\Module\Dir;
@@ -13,12 +12,13 @@ use Raxon\Module\Core;
 use Raxon\Module\File;
 use Raxon\Parse\Module\Parse;
 
-use Raxon\Node\Module\Node;
-
 use Exception;
 
 trait Setup {
     const NAME = 'Desktop';
+
+    use Install;
+
     /**
      * @throws DirectoryCreateException
      * @throws Exception
@@ -29,6 +29,22 @@ trait Setup {
         if($object->config(Config::POSIX_ID) !== 0){
             return;
         }
+        $application_list = $this->install_system_application(
+            $flags,
+            $options,
+        );
+        foreach($application_list as $application){
+            $this->install_api($options, $application);
+            $this->install_application($options, $application);
+            /*
+            Navigation::create(
+                $object,
+                $options,
+                $application
+            );
+            */
+        }
+        /*
         $frontend_options = null;
         $has_frontend = false;
         if(property_exists($options, 'frontend')){
@@ -81,7 +97,7 @@ trait Setup {
 
         //$this->install_system_application($options);
 //        $this->install_application($options_application);
-
+        */
         $command = 'app install raxon/account -patch';
         Core::execute($object, $command, $output, $notification);
         if($output){
