@@ -59,7 +59,7 @@ class Navigation
                         'get' => '{{route.name($this.name)}}'
                     ],
                     "url" => '{{route.get($this.route.get)}}',
-                    "icon" => '/Application/' . $application->name . '/Icon/Icon.png'
+                    "svg" => '/Application/' . $application->name . '/Icon/Icon.png'
                 ];
                 $response = $node->create($class, $role, $record);
             }
