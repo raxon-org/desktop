@@ -12,7 +12,7 @@ class Navigation
      * @throws ObjectException
      * @throws Exception
      */
-    public static function create(App $object, array $list, object $options, object $application): void
+    public static function create(App $object,object $options, object $application): void
     {
         if(!property_exists($application, 'name')){
             throw new Exception('$application name is required.');
@@ -23,6 +23,48 @@ class Navigation
             throw new Exception('$application route->name is required.');
 
         }
+        if(!property_exists($application, 'user')){
+            throw new Exception('$application user (array of user uuids) is required.');
+        }
+        foreach($application->user as $user_uuid){
+            $node = new Node($object);
+            $class = 'Application.Desktop.Navigation';
+            $role = $node->role_system();
+            $response = $node->record(
+                $class,
+                $role,
+                [
+                    'where' => [
+                        [
+                            'attribute' => 'name',
+                            'operator' => '===',
+                            'value' => $application->name,
+                        ],
+                        'and',
+                        [
+                            'attribute' => 'user',
+                            'operator' => '===',
+                            'value' => $user_uuid,
+                        ]
+                    ],
+                    'relation' => false
+                ]
+            );
+            if ($response === null) {
+                $record = [
+                    "name" => $application->name,
+                    "user" => $user_uuid ?? null,
+                    "route" => (object)[
+                        'name' => $application->route->name,
+                        'get' => '{{route.name($this.name)}}'
+                    ],
+                    "url" => '{{route.get($this.route.get)}}',
+                    "icon" => '/Application/' . $application->name . '/Icon/Icon.png'
+                ];
+                $response = $node->create($class, $role, $record);
+            }
+        }
+        /*
         foreach($list as $nr => $user){
             if(
                 is_object($user) &&
@@ -66,6 +108,7 @@ class Navigation
                 }
             }
         }
+        */
     }
 
 
