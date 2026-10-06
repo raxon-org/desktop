@@ -36,13 +36,6 @@ trait Setup {
         foreach($application_list as $application){
             $this->install_api($options, $application);
             $this->install_application($options, $application);
-            /*
-            Navigation::create(
-                $object,
-                $options,
-                $application
-            );
-            */
         }
         $command = 'app install raxon/account -patch';
         Core::execute($object, $command, $output, $notification);
